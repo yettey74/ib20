@@ -173,6 +173,9 @@ if (isset($_GET['fail'])){
     </div>
     <?php
 }
+
+// get each category and its products
+
 ?>
     <div class="menuRow">
       <button 
@@ -805,30 +808,32 @@ if (isset($_GET['fail'])){
 <!-- End hero --> 
 <!-- cart -->
 <div class="cart-overlay">
-  <div class="cart"> <span class="close-cart"><i class="far fa-window-close"></i></span>
+  <div class="cart"> 
+    <span class="close-cart">
+      <i class="far fa-window-close"></i>
+    </span>
     <h2>Order Details</h2>
     <div class="cart-content">
-      <?php
-	
-	// set the vars	
-	$id = '1';		
-	//$price ='500';
-	$price = "<script>document.write(localStorage.getItem('totalPrice'));</script>";
-	$title = 'Indian Brasserie';
-	echo'
-		<form action="stripe/stripeIPN.php?id="'.$id.'" method="POST">
-          <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key = "' . $stripeDetails['publishableKey'] . '";
-            data-amount = "' . $price . '";
-            data-name = "'. $title . '";
-            data-description = "Indian Brasserie Online Order"
-            data-image = "https://stripe.com/img/documentation/checkout/marketplace.png"
-            data-locale = "auto">
-          </script>
-        </form>
-		';
-	?>
+      <?php	
+        // set the vars	
+        $id = '1';
+        //$price ='500';
+        $price = "<script>document.write(localStorage.getItem('totalPrice'));</script>";
+        $title = 'Indian Brasserie';
+        echo'
+          <form action="stripe/stripeIPN.php?id="'.$id.'" method="POST">
+                <script
+                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key = "' . $stripeDetails['publishableKey'] . '";
+                  data-amount = "' . $price . '";
+                  data-name = "'. $title . '";
+                  data-description = "Indian Brasserie Online Order"
+                  data-image = "https://stripe.com/img/documentation/checkout/marketplace.png"
+                  data-locale = "auto">
+                </script>
+              </form>
+          ';
+      ?>
     </div>
     <div class="cart-footer">
       <h3>

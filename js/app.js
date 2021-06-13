@@ -11,6 +11,11 @@ const cartContent = document.querySelector(".cart-content");
 const productsDOM = document.querySelector(".products-center");
 let cart = [];
 let buttonsDOM = [];
+let buttonsDOMmild = [];
+let buttonsDOMmedium = [];
+let buttonsDOMhot= [];
+let buttonsDOMsmall = [];
+let buttonsDOMlarge = [];
 //syntactical sugar of writing constructor function
 
 // products
@@ -25,10 +30,10 @@ class Products {
       let products = data.items;
 
       products = products.map(item => {
-      const { title, price } = item.fields;
+      const { title, price, size, spice } = item.fields;
       const { id } = item.sys;
       const image = item.fields.image.fields.file.url;
-      return { title, price, id, image };
+      return { title, price, size, spice, id, image };
       });
 
       return products;
@@ -55,14 +60,36 @@ class UI {
               class="product-img"
               width="25px"
               height="25px"
-            />
-            <button class="bag-btn" data-id=${product.id}>
-              <i class="fas fa-shopping-cart"></i>
-              Add to Order
-            </button>
-          </div>
-          <h3>${product.title}</h3>
-          <h4>$ ${product.price}</h4>
+            />`;
+            if( product.size == '1' ){
+              result += `
+              <button class="small-btn" data-id=${product.id}>
+                Small
+              </button>
+              <button class="large-btn" data-id=${product.id}>                
+                Large
+              </button>`;
+            } else if( product.spice == '1' ) {
+              result += `
+              <button class="mild-btn" data-id=${product.id}>
+              Mild
+              </button>
+              <button class="medium-btn" data-id=${product.id}>
+                Medium
+              </button>
+              <button class="hot-btn" data-id=${product.id}>
+                Hot
+              </button>`;
+            } else {
+              result += `              
+              <button class="bag-btn" data-id=${product.id}>
+                <i class="fas fa-shopping-cart"></i>
+                Add to Order
+              </button>`;
+            }
+            result += `</div>
+            <h3>${product.title}</h3>
+            <h4>$ ${product.price}</h4>
         </article>
         <!-- end of single product -->
    `;
@@ -99,18 +126,18 @@ class UI {
   }
   
   getMildButtons() {
-    let buttons = [...document.querySelectorAll(".mild-btn")];
-    buttonsDOM = buttons;    
-    buttons.forEach(button => {
-      let id = button.dataset.id;
+    let mildbuttons = [...document.querySelectorAll(".mild-btn")];
+    buttonsDOMmild = mildbuttons;    
+    mildbuttons.forEach(mildbutton => {
+      let id = mildbutton.dataset.id;
       let inCart = cart.find(item => item.id === id);
 
       if (inCart) {
-        button.innerText = "In Cart";
-        button.disabled = true;
+        mildbutton.innerText = "In Cart";
+        mildbutton.disabled = true;
       }
 	  
-      button.addEventListener("click", event => {
+      mildbutton.addEventListener("click", event => {
         // disable button
         event.target.innerText = "In Cart";
         event.target.disabled = true;
@@ -127,9 +154,9 @@ class UI {
   }
   
   getMediumButtons() {
-    let buttons = [...document.querySelectorAll(".medium-btn")];
-    buttonsDOM = buttons;
-    buttons.forEach(button => {
+    let mediumbuttons = [...document.querySelectorAll(".medium-btn")];
+    buttonsDOMmedium = mediumbuttons;
+    mediumbuttons.forEach(button => {
       let id = button.dataset.id;
       let inCart = cart.find(item => item.id === id);
 
@@ -155,9 +182,9 @@ class UI {
   }
   
     getHotButtons() {
-    let buttons = [...document.querySelectorAll(".hot-btn")];
-    buttonsDOM = buttons;
-    buttons.forEach(button => {
+    let hotbuttons = [...document.querySelectorAll(".hot-btn")];
+    buttonsDOMhot = hotbuttons;
+    hotbuttons.forEach(button => {
       let id = button.dataset.id;
       let inCart = cart.find(item => item.id === id);
 
@@ -183,9 +210,9 @@ class UI {
   }
 
   getSmallButtons() {
-    let buttons = [...document.querySelectorAll(".small-btn")];
-    buttonsDOM = buttons;
-    buttons.forEach(button => {
+    let smallbuttons = [...document.querySelectorAll(".small-btn")];
+    buttonsDOMsmall = smallbuttons;
+    smallbuttons.forEach(button => {
       let id = button.dataset.id;
       let inCart = cart.find(item => item.id === id);
 
@@ -211,9 +238,9 @@ class UI {
   }
   
   getLargeButtons() {
-    let buttons = [...document.querySelectorAll(".large-btn")];
-    buttonsDOM = buttons;
-    buttons.forEach(button => {
+    let largebuttons = [...document.querySelectorAll(".large-btn")];
+    buttonsDOMlarge = largebuttons;
+    largebuttons.forEach(button => {
       let id = button.dataset.id;
       let inCart = cart.find(item => item.id === id);
 
@@ -252,6 +279,7 @@ class UI {
   } 
   
   addCartItem(item) {
+    
     const div = document.createElement("div");
     div.classList.add("cart-item");
     div.innerHTML = `<!-- cart item -->
@@ -274,31 +302,54 @@ class UI {
           <!-- cart item -->
     `;
     cartContent.appendChild(div);
+
   }
+
   showCart() {
+
     cartOverlay.classList.add("transparentBcg");
     cartDOM.classList.add("showCart");
+
   }
+
+
   setupAPP() {
+
     cart = Storage.getCart();
     this.setCartValues(cart);
     this.populateCart(cart);
     cartBtn.addEventListener("click", this.showCart);
     closeCartBtn.addEventListener("click", this.hideCart);
+
   }
+
+
   populateCart(cart) {
+
     cart.forEach(item => this.addCartItem(item));
+
   }
+
+
   hideCart() {
+
     cartOverlay.classList.remove("transparentBcg");
     cartDOM.classList.remove("showCart");
+
   }
+
   cartLogic() {
+
     clearCartBtn.addEventListener("click", () => {
+
       this.clearCart();
+
     });
+
     cartContent.addEventListener("click", event => {
+
       if (event.target.classList.contains("remove-item")) {
+
         let removeItem = event.target;
         let id = removeItem.dataset.id;
         cartContent.removeChild(removeItem.parentElement.parentElement);
@@ -338,28 +389,41 @@ class UI {
       }
     });
   }
-  
+
+
   clearCart() {
+
     console.log(this);
     let cartItems = cart.map(item => item.id);
     cartItems.forEach(id => this.removeItem(id));
+
     while (cartContent.children.length > 0) {
       cartContent.removeChild(cartContent.children[0]);
     }
+
     this.hideCart();
+
   }
 
+
   removeItem(id) {
+
+    console.log(this);
     cart = cart.filter(item => item.id !== id);
     this.setCartValues(cart);
     Storage.saveCart(cart);
+
     let button = this.getSingleButton(id);
     button.disabled = false;
-    button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to cart`;
+    button.innerHTML = `<i class="fas fa-shopping-cart"></i>Add to Cart`;
+
   }
 
+
   getSingleButton(id) {
+
     return buttonsDOM.find(button => button.dataset.id === id);
+
   }
 
 }

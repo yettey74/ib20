@@ -173,12 +173,15 @@ if (isset($_GET['fail'])){
     </div>
     <?php
 }
+
+// get each category and its products
+
 ?>
     <div class="menuRow">
       <button 
           class="banner-btn"         	
           data-toggle="collapse" 
-          data-target="#vegentree">Vegetarian Entree </button>
+          data-target="#vegentree">Vegetarian Entree</button>
       <?php
           // get all entrees
           $vegEntreeQ = "SELECT * FROM products WHERE cid='1'";
@@ -197,14 +200,14 @@ if (isset($_GET['fail'])){
                 ?>
                   <article class="product">
                     <div class="img-container"> 
-                    <img src="../img/order/<?php echo $vegEntree['product_image'] ?> "
+                    <img src="/ib20/img/order/<?php echo $vegEntree['product_image'] ?>"
                          alt="<?php echo $vegEntree['title'] ?>"
                          title="<?php echo $vegEntree['title'] ?>"
                          class="product-img"
                          width="25px" 
                          height="25px"
                       />
-                      <button class="bag-btn" data-id="<?php echo $vegEntree['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
+                      <button class="bag-btn" data-id="<?php echo $vegEntree['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
                     </div>
                     <h4><?php echo $vegEntree['title'] ?></h3>
                     <h3>$<?php echo $vegEntree['price'] ?></h4>
@@ -217,9 +220,10 @@ if (isset($_GET['fail'])){
         </section>
       </div>
       <button 
-                class="banner-btn"         	
-                data-toggle="collapse" 
-                data-target="#nventree">Non Vegetarian Entree </button>
+        class="banner-btn"         	
+        data-toggle="collapse" 
+        data-target="#nventree">Non Vegetarian Entree 
+      </button>
       <?php
   // get all entrees
   $nvEntreeQ = "SELECT * FROM products WHERE cid='2'";
@@ -238,12 +242,12 @@ if (isset($_GET['fail'])){
 		?>
             <article class="product">
               <div class="img-container"> 
-              <img src="ib20/img/order/<?php echo $nvEntree['product_image'] ?>"
+              <img src="/ib20/img/order/<?php echo $nvEntree['product_image'] ?>"
                   alt="<?php echo $nvEntree['title'] ?>"
                   class="product-img"
                   width="25px" 
                   height="25px" />
-                <button class="bag-btn" data-id="<?php echo $nvEntree['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
+                <button class="bag-btn" data-id="<?php echo $nvEntree['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
               </div>
               <h3><?php echo $nvEntree['title'] ?></h3>
               <h4>$<?php echo $nvEntree['price'] ?></h4>
@@ -282,12 +286,12 @@ if (isset($_GET['fail'])){
 					?>
             <article class="product">
               <div class="img-container"> 
-              <img src="ib20/img/order/<?php echo $accom['product_image'] ?>"
+              <img src="/ib20/img/order/<?php echo $accom['product_image'] ?>"
                   alt="<?php echo $accom['title'] ?>"
                   class="product-img"
                   width="25px" 
                   height="25px" />
-                <button class="bag-btn" data-id="<?php echo $accom['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
+                <button class="bag-btn" data-id="<?php echo $accom['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
               </div>
               <h3><?php echo $accom['title'] ?></h3>
               <h4>$<?php echo $accom['price'] ?></h4>
@@ -321,12 +325,12 @@ if (isset($_GET['fail'])){
 					?>
             <article class="product">
               <div class="img-container"> 
-              <img src="ib20/img/order/<?php echo $salad['product_image'] ?> "
+              <img src="/ib20/img/order/<?php echo $salad['product_image'] ?> "
                     alt="<?php echo $salad['title'] ?>"
                     class="product-img"
                     width="25px" 
                     height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $salad['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
+                <button class="bag-btn" data-id="<?php echo $salad['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
               </div>
               <h3><?php echo $salad['title'] ?></h3>
               <h4>$<?php echo $salad['price'] ?></h4>
@@ -360,12 +364,12 @@ if (isset($_GET['fail'])){
 					?>
             <article class="product">
               <div class="img-container"> 
-              <img src="ib20/img/order/<?php echo $bread['product_image'] ?> "
+              <img src="/ib20/img/order/<?php echo $bread['product_image'] ?> "
 						  alt="<?php echo $bread['title'] ?>"
 						  class="product-img"
 						  width="25px" 
 						  height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $bread['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
+                <button class="bag-btn" data-id="<?php echo $bread['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
               </div>
               <h3><?php echo $bread['title'] ?></h3>
               <h4>$<?php echo $bread['price'] ?></h4>
@@ -398,12 +402,12 @@ if (isset($_GET['fail'])){
 					{
 					?>
             <article class="product">
-              <div class="img-container"> <img src="ib20/img/order/<?php echo $rice['product_image'] ?> "
+              <div class="img-container"> <img src="/ib20/img/order/<?php echo $rice['product_image'] ?> "
 						  alt="<?php echo $rice['title'] ?>"
 						  class="product-img"
 						  width="25px" 
 						  height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $rice['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
+                <button class="bag-btn" data-id="<?php echo $rice['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
               </div>
               <h3><?php echo $rice['title'] ?></h3>
               <h4>$<?php echo $rice['price'] ?></h4>
@@ -441,14 +445,14 @@ if (isset($_GET['fail'])){
 					{
 					?>
             <article class="product">
-              <div class="img-container"> <img src="ib20/img/order/<?php echo $kids['product_image'] ?> "
+              <div class="img-container"> <img src="/ib20/img/order/<?php echo $kids['product_image'] ?> "
 						  alt="<?php echo $kids['title'] ?>"
 						  class="product-img"
 						  width="25px" 
 						  height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $kids['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
-                <button class="medium-btn" data-id="<?php echo $kids['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
-                <button class="hot-btn" data-id="<?php echo $kids['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
+                <button class="bag-btn" data-id="<?php echo $kids['id'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
+                <button class="medium-btn" data-id="<?php echo $kids['id'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
+                <button class="hot-btn" data-id="<?php echo $kids['id'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
               </div>
               <h3><?php echo $kids['title'] ?></h3>
               <h4>$<?php echo $kids['price'] ?></h4>
@@ -482,21 +486,21 @@ if (isset($_GET['fail'])){
 					?>
             <article class="product">
               <div class="img-container"> 
-                <img src="ib20/img/order/<?php echo $veg['product_image'] ?> "
+                <img src="/ib20/img/order/<?php echo $veg['product_image'] ?> "
                      alt="<?php echo $veg['title'] ?>"
                      class="product-img"
                      width="25px" 
                      height="25px"/>
 
-                <button class="small-btn" data-id="<?php echo $veg['pid'] ?>">Small </button>
+                <button class="small-btn" data-id="<?php echo $veg['id'] ?>">Small </button>
 
-                <button class="large-btn" data-id="<?php echo $veg['pid'] ?>">Large </button>
+                <button class="large-btn" data-id="<?php echo $veg['id'] ?>">Large </button>
 
-                <button class="mild-btn" data-id="<?php echo $veg['pid'] ?>"> <i class="fas fa-thermometer-empty"></i> Mild </button>
+                <button class="mild-btn" data-id="<?php echo $veg['id'] ?>"> <i class="fas fa-thermometer-empty"></i> Mild </button>
 
-                <button class="medium-btn" data-id="<?php echo $veg['pid'] ?>"> <i class="fas fa-thermometer-half"></i> Medium </button>
+                <button class="medium-btn" data-id="<?php echo $veg['id'] ?>"> <i class="fas fa-thermometer-half"></i> Medium </button>
 
-                <button class="hot-btn" data-id="<?php echo $veg['pid'] ?>"> <i class="fas fa-thermometer-full"></i> Hot </button>
+                <button class="hot-btn" data-id="<?php echo $veg['id'] ?>"> <i class="fas fa-thermometer-full"></i> Hot </button>
 
               </div>
               <h3><?php echo $veg['title'] ?></h3>
@@ -536,9 +540,9 @@ if (isset($_GET['fail'])){
                      class="product-img"
                      width="25px" 
                      height="25px"/>
-                <button class="mild-btn" data-id="<?php echo $chicken['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
-                <button class="medium-btn" data-id="<?php echo $chicken['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
-                <button class="hot-btn" data-id="<?php echo $chicken['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
+                <button class="mild-btn" data-id="<?php echo $chicken['id'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
+                <button class="medium-btn" data-id="<?php echo $chicken['id'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
+                <button class="hot-btn" data-id="<?php echo $chicken['id'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
               </div>
               <h3><?php echo $chicken['title'] ?></h3>
               <h4>$<?php echo $chicken['price'] ?></h4>
@@ -571,14 +575,14 @@ if (isset($_GET['fail'])){
 					{
 					?>
             <article class="product">
-              <div class="img-container"> <img src="ib20/img/order/<?php echo $beef['product_image'] ?> "
+              <div class="img-container"> <img src="/ib20/img/order/<?php echo $beef['product_image'] ?> "
 						  alt="<?php echo $beef['title'] ?>"
 						  class="product-img"
 						  width="25px" 
 						  height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $beef['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
-                <button class="medium-btn" data-id="<?php echo $beef['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
-                <button class="medium-btn" data-id="<?php echo $beef['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
+                <button class="bag-btn" data-id="<?php echo $beef['id'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
+                <button class="medium-btn" data-id="<?php echo $beef['id'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
+                <button class="medium-btn" data-id="<?php echo $beef['id'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
               </div>
               <h3><?php echo $beef['title'] ?></h3>
               <h4>$<?php echo $beef['price'] ?></h4>
@@ -616,14 +620,14 @@ if (isset($_GET['fail'])){
 					{
 					?>
             <article class="product">
-              <div class="img-container"> <img src="ib20/img/order/<?php echo $lamb['product_image'] ?> "
+              <div class="img-container"> <img src="/ib20/img/order/<?php echo $lamb['product_image'] ?> "
 						  alt="<?php echo $lamb['title'] ?>"
 						  class="product-img"
 						  width="25px" 
 						  height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $lamb['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
-                <button class="medium-btn" data-id="<?php echo $lamb['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
-                <button class="hot-btn" data-id="<?php echo $lamb['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
+                <button class="bag-btn" data-id="<?php echo $lamb['id'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
+                <button class="medium-btn" data-id="<?php echo $lamb['id'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
+                <button class="hot-btn" data-id="<?php echo $lamb['id'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
               </div>
               <h3><?php echo $lamb['title'] ?></h3>
               <h4>$<?php echo $lamb['price'] ?></h4>
@@ -656,14 +660,14 @@ if (isset($_GET['fail'])){
 		{
 		?>
             <article class="product">
-              <div class="img-container"> <img src="ib20/img/order/<?php echo $goat['product_image'] ?> "
+              <div class="img-container"> <img src="/ib20/img/order/<?php echo $goat['product_image'] ?> "
               alt="<?php echo $goat['title'] ?>"
               class="product-img"
               width="25px" 
               height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $goat['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
-                <button class="medium-btn" data-id="<?php echo $goat['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
-                <button class="medium-btn" data-id="<?php echo $goat['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
+                <button class="bag-btn" data-id="<?php echo $goat['id'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
+                <button class="medium-btn" data-id="<?php echo $goat['id'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
+                <button class="medium-btn" data-id="<?php echo $goat['id'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
               </div>
               <h3><?php echo $goat['title'] ?></h3>
               <h4>$<?php echo $goat['price'] ?></h4>
@@ -696,14 +700,14 @@ if (isset($_GET['fail'])){
 		{
 		?>
             <article class="product">
-              <div class="img-container"> <img src="ib20/img/order/<?php echo $seafood['product_image'] ?> "
+              <div class="img-container"> <img src="/ib20/img/order/<?php echo $seafood['product_image'] ?> "
               alt="<?php echo $seafood['title'] ?>"
               class="product-img"
               width="25px" 
               height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $seafood['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
-                <button class="medium-btn" data-id="<?php echo $seafood['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
-                <button class="hot-btn" data-id="<?php echo $seafood['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
+                <button class="bag-btn" data-id="<?php echo $seafood['id'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
+                <button class="medium-btn" data-id="<?php echo $seafood['id'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
+                <button class="hot-btn" data-id="<?php echo $seafood['id'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
               </div>
               <h3><?php echo $seafood['title'] ?></h3>
               <h4>$<?php echo $seafood['price'] ?></h4>
@@ -742,12 +746,12 @@ if (isset($_GET['fail'])){
             ?>
             <article class="product">
               <div class="img-container"> 
-              <img src="ib20/img/order/<?php echo $dessert['product_image'] ?> "
+              <img src="/ib20/img/order/<?php echo $dessert['product_image'] ?> "
                   alt="<?php echo $dessert['title'] ?>"
                   class="product-img"
                   width="25px" 
                   height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $dessert['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
+                <button class="bag-btn" data-id="<?php echo $dessert['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
               </div>
               <h3><?php echo $dessert['title'] ?></h3>
               <h4>$<?php echo $dessert['price'] ?></h4>
@@ -781,12 +785,12 @@ if (isset($_GET['fail'])){
             ?>
             <article class="product">
               <div class="img-container"> 
-              <img src="ib20/img/order/<?php echo $drink['product_image'] ?>"
+              <img src="/ib20/img/order/<?php echo $drink['product_image'] ?>"
                   alt="<?php echo $drink['title'] ?>"
                   class="product-img"
                   width="25px" 
                   height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $drink['pid'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
+                <button class="bag-btn" data-id="<?php echo $drink['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
               </div>
               <h3><?php echo $drink['title'] ?></h3>
               <h4>$<?php echo $drink['price'] ?></h4>

@@ -7,8 +7,6 @@
 				"title": "Onion Bhajia",
 				"price": 6.9,
 				"product_description": "Onion rings coated in a spice chickpea batter, fried until crisp and served with tamarind sauce.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 1,
 				"image": {
@@ -28,8 +26,6 @@
 				"title": "Vegetables Pakoras",
 				"price": 6.9,
 				"product_description": "Seasonal vegetables coated in chickpea flour batter blended with ground whole spice and fried, served with tamarind sauce.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 1,
 				"image": {
@@ -49,8 +45,6 @@
 				"title": "Vegetarian Samosa",
 				"price": 7.5,
 				"product_description": "Homemade crispy pastry jacket filled with spiced potatoes, mixed fruit and green peas, served with tamarind sauce",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 1,
 				"image": {
@@ -71,8 +65,6 @@
 				"title": "Cheese Pakora",
 				"price": 7.9,
 				"product_description": "Homemade cheese coated in chickpea flour with herbs & spices, deep fried and served with a Tamarind Chutney",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 1,
 				"image": {
@@ -91,8 +83,6 @@
 				"title": "Mixed Vegetarian Entree",
 				"price": 9.9,
 				"product_description": "One piece of each: Vegetarian Pakora, Samosa, Cheese Pakora and Onion Bhajia, served with tamarind sauce",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 1,
 				"image": {
@@ -111,8 +101,6 @@
 				"title": "Tandoori Chicken",
 				"price": 8.5,
 				"product_description": "Chicken marinated in yoghurt, various herbs and spice, barbequed in the tandoor, served with mint sauce",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 1,
 				"image": {
@@ -131,8 +119,6 @@
 				"title": "Fish Tikka",
 				"price": 11.9,
 				"product_description": "Fish fillets marinated with Indian spices and yogurt, grilled in tandoor.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 1,
 				"image": {
@@ -151,8 +137,6 @@
 				"title": "Chicken Tikka",
 				"price": 8.5,
 				"product_description": "Chicken pieces marinated in fresh yoghurt, herbs and mild spices barbequed in the tandoor, served with mint sauce.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 2,
 				"image": {
@@ -171,8 +155,6 @@
 				"title": "Mix Non Veg Platter",
 				"price": 13.5,
 				"product_description": "One piece each of chicken tikka, garlic chicken tikka ,Seekh kabab and fish tikka served with mint sauce",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 2,
 				"image": {
@@ -191,8 +173,6 @@
 				"title": "Tandoori Prawns",
 				"price": 13.5,
 				"product_description": "King prawns marinated in yoghurt & mild spices, lemon juice barbecued in tandoor, served with mint sauce.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 2,
 				"image": {
@@ -211,8 +191,6 @@
 				"title": "Garlic Prawns",
 				"price": 13.5,
 				"product_description": "King prawns marinated with garlic, cream & other mild spices, roasted in tandoor",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 2,
 				"image": {
@@ -231,8 +209,6 @@
 				"title": "Garlic Tikka",
 				"price": 9,
 				"product_description": "Chicken marinated in roasted garlic, cream & mild spices, barbecued in Tandoor & served with salad & mint sauce.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 2,
 				"image": {
@@ -251,8 +227,6 @@
 				"title": "Goan Fish Curry",
 				"price": 15.5,
 				"product_description": "A specialty Of Goa, cooked in kashmiri chilli, turmeric, coconut, curry leaves and tamarind in satin smooth gravy from Western India.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 3,
 				"image": {
@@ -271,8 +245,6 @@
 				"title": "Prawn Taka Tak",
 				"price": 19.9,
 				"product_description": "ing Prawns cooked with garlic, onion and capsicum with a touch of cr�me and herbs.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 3,
 				"image": {
@@ -291,8 +263,6 @@
 				"title": "Prawn Masala",
 				"price": 19.9,
 				"product_description": "King Prawns cooked with curry leaves, mustard seeds, coconut and a dash of cream.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 3,
 				"image": {
@@ -311,8 +281,6 @@
 				"title": "Prawn Madras",
 				"price": 19.9,
 				"product_description": "King Prawns cooked with curry leaves, mustard seeds, coconut and a dash of cream.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 3,
 				"image": {
@@ -331,8 +299,6 @@
 				"title": "Prawn Korma",
 				"price": 19.9,
 				"product_description": "Prawns cooked in a rich cashew nut gravy with mild spices and a dash of cream",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 3,
 				"image": {
@@ -351,8 +317,6 @@
 				"title": "Prawn Vindaloo",
 				"price": 19.9,
 				"product_description": "Prawns cooked in a hot sauce with spices and a dash of lemon juice. Can be served Medium.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 3,
 				"image": {
@@ -371,8 +335,6 @@
 				"title": "Fish Korma",
 				"price": 15.5,
 				"product_description": "Tender pieces of fish cooked in cashew nut gravy sauce with mild spices and a dash of cream.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 3,
 				"image": {
@@ -391,8 +353,6 @@
 				"title": "Fish Vindaloo",
 				"price": 14.9,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 3,
 				"image": {
@@ -411,8 +371,6 @@
 				"title": "Butter Chicken",
 				"price": 14.5,
 				"product_description": "boneless pieces of chicken tikka cooked in a tomato based gravy, flavoured with cardamom and cashew nut sauce",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 4,
 				"image": {
@@ -431,8 +389,6 @@
 				"title": "Chicken Vindaloo",
 				"price": 14.5,
 				"product_description": "boneless chicken cooked in ginger, a selection of freshly ground spices, red chillies and a dash of vinegar",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 4,
 				"image": {
@@ -451,8 +407,6 @@
 				"title": "Chicken Korma",
 				"price": 14.5,
 				"product_description": "boneless pieces of chicken prepared in cashew nuts gravy and combined with mild aromatic spices. This dish is smooth & mild",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 4,
 				"image": {
@@ -471,8 +425,6 @@
 				"title": "Chicken Saagwala",
 				"price": 14.5,
 				"product_description": "chicken cooked with garlic & mustard seeds with various homemade spices with fresh spinach & a dash of cream",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 4,
 				"image": {
@@ -491,8 +443,6 @@
 				"title": "Chicken Kadai",
 				"price": 14.5,
 				"product_description": "boneless pieces of chicken saut� with tomato, onions, capsicum,pepper and fresh herbs, cooked in masala gravy",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 4,
 				"image": {
@@ -511,8 +461,6 @@
 				"title": "Mango Chicken",
 				"price": 14.5,
 				"product_description": "boneless chicken pieces cooked in tomato based gravy, cashew nuts, mango and a dash of cream",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 4,
 				"image": {
@@ -531,8 +479,6 @@
 				"title": "Chick Tikka Masala",
 				"price": 14.5,
 				"product_description": "chicken tikka pieces tossed with capsicum and onion, mixed with an onion and tomato gravy, with a dash of cream (contains cashew nuts)",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 4,
 				"image": {
@@ -551,8 +497,6 @@
 				"title": "Chicken Madras",
 				"price": 14.5,
 				"product_description": "chicken cooked in a coconut based gravy, with mustard seeds &curry leaves, mixed with a special Masala sauce",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 4,
 				"image": {
@@ -571,8 +515,6 @@
 				"title": "Lamb Rara Punjabi",
 				"price": 14.9,
 				"product_description": "lamb mixed with lamb mince, cumin, tomato & onion with a touch of lemon & spices.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 5,
 				"image": {
@@ -591,8 +533,6 @@
 				"title": "Lamb Roganjosh",
 				"price": 14.9,
 				"product_description": "lamb pieces cooked in rich gravy of tomato and onion with various spices for a magnificent flavour",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 5,
 				"image": {
@@ -611,8 +551,6 @@
 				"title": "Lamb Vindaloo",
 				"price": 14.9,
 				"product_description": "cubes of lamb cooked in ginger, a selection of freshly groundspices, red chillies, and a dash of vinegar... this hot dish is well known to hot food lovers",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 5,
 				"image": {
@@ -631,8 +569,6 @@
 				"title": "Lamb Shanks",
 				"price": 19.9,
 				"product_description": "Shanks cooked in tomato and onion gravy, mixedwith various home make spices",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 5,
 				"image": {
@@ -651,8 +587,6 @@
 				"title": "Lamb Korma",
 				"price": 14.9,
 				"product_description": "a creamy dish of lamb cubes braised with rich almond gravy with a touch of saffron and mild spices",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 5,
 				"image": {
@@ -671,8 +605,6 @@
 				"title": "Lamb Saagwala",
 				"price": 14.9,
 				"product_description": "pure fresh spinach cooked with cubes of lamb, onions, tomatoes and a selection of spices including roasted mustard seeds to produce this unforgettable dish",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 5,
 				"image": {
@@ -691,8 +623,6 @@
 				"title": "Beef Vindaloo",
 				"price": 14.8,
 				"product_description": "cubes of beef cooked in ginger, a selection of freshly ground spices, red chillies, and a dash of vinegar... this hot dish is well known to hot food lovers",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 6,
 				"image": {
@@ -711,8 +641,6 @@
 				"title": "Beef Roganjosh",
 				"price": 14.8,
 				"product_description": "beef pieces cooked in rich gravy of tomato and onion with various spices for a magnificent flavour",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 6,
 				"image": {
@@ -731,8 +659,6 @@
 				"title": "Beef Korma",
 				"price": 14.8,
 				"product_description": "a creamy dish of beef cubes braised in rich almond gravy with a touch of saffron and mild spices",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 6,
 				"image": {
@@ -751,8 +677,6 @@
 				"title": "Beef Madras",
 				"price": 14.8,
 				"product_description": "beef cooked with curry leaf, mustard seeds & coconut cream with rich madras flavours",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 6,
 				"image": {
@@ -771,8 +695,6 @@
 				"title": "Daal Makhani",
 				"price": 11.5,
 				"product_description": "north India specialty from punjab. A selection of lentils cooked with ginger and coriander combined with home style spices",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 7,
 				"image": {
@@ -791,8 +713,6 @@
 				"title": "Shahi Paneer",
 				"price": 11.9,
 				"product_description": "cottage cheese cooked to perfection in a cashew nut and tomato based gravy",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 7,
 				"image": {
@@ -811,8 +731,6 @@
 				"title": "Channa Masala",
 				"price": 11.5,
 				"product_description": "chick pea and potato in a tomato based masala sauce",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 7,
 				"image": {
@@ -831,8 +749,6 @@
 				"title": "Saag Paneer",
 				"price": 11.9,
 				"product_description": "cheese in a sauce of spinach, mixed with garlic & mustard seeds and a dash of cream",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 7,
 				"image": {
@@ -851,8 +767,6 @@
 				"title": "Saag Aloo",
 				"price": 11.5,
 				"product_description": "potato mixed with garlic & mustard seeds tossed with fresh spinach with a dash of cream",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 7,
 				"image": {
@@ -871,8 +785,6 @@
 				"title": "Aloo Gobhi",
 				"price": 11.5,
 				"product_description": "a punjabi favourite of cauliflower and spiced potatoes, wok fried with onions, fresh herbs and spices",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 7,
 				"image": {
@@ -891,8 +803,6 @@
 				"title": "Navratan Korma",
 				"price": 11.9,
 				"product_description": "mixed vegetables tossed in butter, cooked in rich cashew nut gravy combined with dried fruit.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 7,
 				"image": {
@@ -911,8 +821,6 @@
 				"title": "Vegetable Korma",
 				"price": 11.9,
 				"product_description": "mixed vegetables tossed in butter, cooked in rich cashew nut gravy combined with dried fruit.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 7,
 				"image": {
@@ -931,8 +839,6 @@
 				"title": "Mixed Veg Curry",
 				"price": 10.9,
 				"product_description": "combination of seasonal vegetables cooked in fresh herbs, garlic, tomatoes with a blend of unique spices with a dash of cream",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 7,
 				"image": {
@@ -951,8 +857,6 @@
 				"title": "Matter Paneer",
 				"price": 11.9,
 				"product_description": "peas & cheese cooked in a homemade style with masala gravy and a dash of cream.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 7,
 				"image": {
@@ -971,8 +875,6 @@
 				"title": "Kadai Paneer",
 				"price": 11.9,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 7,
 				"image": {
@@ -991,8 +893,6 @@
 				"title": "Malai Kofta",
 				"price": 11.9,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 7,
 				"image": {
@@ -1011,8 +911,6 @@
 				"title": "Plain Naan",
 				"price": 2.5,
 				"product_description": "fine plain flour bread baked in tandoor",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 8,
 				"image": {
@@ -1031,8 +929,6 @@
 				"title": "Butter Naan",
 				"price": 2.6,
 				"product_description": "fine butter flour bread baked in tandoor",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 8,
 				"image": {
@@ -1051,8 +947,6 @@
 				"title": "Garlic Naan",
 				"price": 3,
 				"product_description": "buttered naan dressed in garlic and baked in tandoor",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 8,
 				"image": {
@@ -1071,8 +965,6 @@
 				"title": "Keema Naan",
 				"price": 3.9,
 				"product_description": "naan stuffed with spiced mince lamb and herbs baked in tandoor",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 8,
 				"image": {
@@ -1091,8 +983,6 @@
 				"title": "Tandoori Roti",
 				"price": 2.9,
 				"product_description": "whole meal tandoori baked bread",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 8,
 				"image": {
@@ -1111,8 +1001,6 @@
 				"title": "Stuffed Kulcha",
 				"price": 3.5,
 				"product_description": "naan stuffed with onion & spiced potato baked in tandoor",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 8,
 				"image": {
@@ -1131,8 +1019,6 @@
 				"title": "Kashmiri Naan",
 				"price": 3.9,
 				"product_description": "naan stuffed with dried fruit and nuts baked in tandoor",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 8,
 				"image": {
@@ -1151,8 +1037,6 @@
 				"title": "Vindaloo Naan",
 				"price": 3.5,
 				"product_description": "naan with vindaloo sauce topping",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 8,
 				"image": {
@@ -1171,8 +1055,6 @@
 				"title": "Cheese Naan",
 				"price": 4,
 				"product_description": "naan stuffed with cheese, baked in tandoor",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 8,
 				"image": {
@@ -1191,8 +1073,6 @@
 				"title": "Garlic Cheese Naan",
 				"price": 4.2,
 				"product_description": "naan stuffed with cheese & top coated with roasted garlic",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 8,
 				"image": {
@@ -1211,8 +1091,6 @@
 				"title": "Cheese Chilly Garli Naan",
 				"price": 4.5,
 				"product_description": "cheese stuffed naan & top coated with roasted chilli garlic",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 8,
 				"image": {
@@ -1231,8 +1109,6 @@
 				"title": "Naan Basket",
 				"price": 8.5,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 8,
 				"image": {
@@ -1251,8 +1127,6 @@
 				"title": "Kashmiri Pulao",
 				"price": 8.9,
 				"product_description": "various vegetables � peas, carrots, broccoli, cauliflower, capsicum, mixed with cashews, fruit mix & almond flakes",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 9,
 				"image": {
@@ -1271,8 +1145,6 @@
 				"title": "Saffron Rice",
 				"price": 3.6,
 				"product_description": "aromatic rice with roasted cumin and saffron",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 9,
 				"image": {
@@ -1291,8 +1163,6 @@
 				"title": "Steamed Rice",
 				"price": 2.9,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 9,
 				"image": {
@@ -1311,8 +1181,6 @@
 				"title": "Fried Rice - Indian Style",
 				"price": 9.9,
 				"product_description": "with chicken & vegetables",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 9,
 				"image": {
@@ -1331,8 +1199,6 @@
 				"title": "Vegetable Plao",
 				"price": 8,
 				"product_description": "Rice cooked with seasonal vegetables & combined with various spices.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 9,
 				"image": {
@@ -1351,8 +1217,6 @@
 				"title": "Green Salad",
 				"price": 5.9,
 				"product_description": "a selection of greens including cucumber, tomatoes and spinach onion with a vinaigrette dressing.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 10,
 				"image": {
@@ -1371,8 +1235,6 @@
 				"title": "Kachumber Salad",
 				"price": 5.9,
 				"product_description": "diced salad of cucumber, onion & tomato mixed with a vinaigrette dressing and salad spices",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 10,
 				"image": {
@@ -1391,8 +1253,6 @@
 				"title": "Papadums",
 				"price": 3,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 11,
 				"image": {
@@ -1411,8 +1271,6 @@
 				"title": "Mixed Pickles",
 				"price": 2.5,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 11,
 				"image": {
@@ -1431,8 +1289,6 @@
 				"title": "Vindaloo Chutney",
 				"price": 2.5,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 11,
 				"image": {
@@ -1451,8 +1307,6 @@
 				"title": "Raita",
 				"price": 2.5,
 				"product_description": "natural homemade cucumber yoghurt",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 11,
 				"image": {
@@ -1471,8 +1325,6 @@
 				"title": "Mango Chutney",
 				"price": 2.5,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 11,
 				"image": {
@@ -1491,8 +1343,6 @@
 				"title": "Gulab Jamun",
 				"price": 6.9,
 				"product_description": "milk dumplings made from evaporated milk, fried and dipped inflavoured sugar syrup",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 11,
 				"image": {
@@ -1511,8 +1361,6 @@
 				"title": "Nutella Naan",
 				"price": 4.9,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 11,
 				"image": {
@@ -1531,8 +1379,6 @@
 				"title": "Nuggets with Chips",
 				"price": 9.9,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 13,
 				"image": {
@@ -1551,8 +1397,6 @@
 				"title": "Spring Rolls with Chips",
 				"price": 9.9,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 13,
 				"image": {
@@ -1571,8 +1415,6 @@
 				"title": "Kids Chicken Tikka",
 				"price": 9.9,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 13,
 				"image": {
@@ -1591,8 +1433,6 @@
 				"title": "Fish & Chips",
 				"price": 9.9,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 13,
 				"image": {
@@ -1611,8 +1451,6 @@
 				"title": "Chips",
 				"price": 5,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 13,
 				"image": {
@@ -1631,8 +1469,6 @@
 				"title": "Butter Chicken (Kids)",
 				"price": 9.9,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 13,
 				"image": {
@@ -1651,8 +1487,6 @@
 				"title": "Mango Lassi",
 				"price": 3.5,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 15,
 				"image": {
@@ -1671,8 +1505,6 @@
 				"title": "Iced Tead",
 				"price": 3.5,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 15,
 				"image": {
@@ -1691,8 +1523,6 @@
 				"title": "2 Liter Soft Drink",
 				"price": 5.9,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 15,
 				"image": {
@@ -1711,8 +1541,6 @@
 				"title": "Sparkling Water",
 				"price": 4.5,
 				"product_description": "",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 15,
 				"image": {
@@ -1731,8 +1559,6 @@
 				"title": "Kids Drinks",
 				"price": 3,
 				"product_description": "Various flavours.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 15,
 				"image": {
@@ -1751,8 +1577,6 @@
 				"title": "Mountain Fresh Juices",
 				"price": 4,
 				"product_description": "various flavours.",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 15,
 				"image": {
@@ -1771,8 +1595,6 @@
 				"title": "Red bull",
 				"price": 4,
 				"product_description": "Gives you Wings",
-				"size": 1,
-				"spice": 1,
 				"suspend": "Active",
 				"cid": 15,
 				"image": {
