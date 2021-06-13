@@ -210,13 +210,15 @@ body {
   grid-column-gap: 1.5rem;
   grid-row-gap: 2rem;
 }
+
 .img-container {
   position: relative;
   overflow: hidden;
 }
+
 .mild-btn {
   position: absolute;
-  top: 30%;
+  top: 25%;
   right: 0;
   background: var(--primaryColor);
   border: none;
@@ -232,9 +234,9 @@ body {
   color: var(--mainWhite);
 }
 
-.bag-btn {
-  position: absolute;
-  top: 70%;
+.medium-btn {
+  position:absolute;
+  top: 50%;
   right: 0;
   background: var(--primaryColor);
   border: none;
@@ -246,23 +248,120 @@ body {
   transform: translateX(101%);
   cursor: pointer;
 }
+.medium-btn:hover {
+  color: var(--mainWhite);
+}
+
+.hot-btn {
+  position: absolute;
+  top: 75%;
+  right: 0;
+  background: var(--primaryColor);
+  border: none;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  letter-spacing: var(--mainSpacing);
+  font-weight: bold;
+  transition: var(--mainTransition);
+  transform: translateX(101%);
+  cursor: pointer;
+}
+.hot-btn:hover {
+  color: var(--mainWhite);
+}
+
+.small-btn {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  background: var(--primaryColor);
+  border: none;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  letter-spacing: var(--mainSpacing);
+  font-weight: bold;
+  transition: var(--mainTransition);
+  transform: translateX(-101%);
+  cursor: pointer;
+}
+.small-btn:hover {
+  color: var(--mainWhite);
+}
+
+.large-btn {
+  position: absolute;
+  top: 75%;
+  left: 0;
+  background: var(--primaryColor);
+  border: none;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  letter-spacing: var(--mainSpacing);
+  font-weight: bold;
+  transition: var(--mainTransition);
+  transform: translateX(-101%);
+  cursor: pointer;
+}
+.large-btn:hover {
+  color: var(--mainWhite);
+}
+
+.bag-btn {
+  position: absolute;
+  top: 25%;
+  right: 0;
+  background: var(--primaryColor);
+  border: none;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  letter-spacing: var(--mainSpacing);
+  font-weight: bold;
+  transition: var(--mainTransition);
+  transform: translateX(101%);
+  cursor: pointer;
+}
+
 .bag-btn:hover {
   color: var(--mainWhite);
 }
+
+.img-container:hover .bag-btn {
+  transform: translateX(0);
+}
+
+.img-container:hover .mild-btn {
+  transform: translateX(0);
+}
+
+.img-container:hover .medium-btn {
+  transform: translateX(0);
+}
+
+.img-container:hover .hot-btn {
+  transform: translateX(0);
+}
+
+.img-container:hover .small-btn {
+  transform: translateX(0);
+}
+
+.img-container:hover .large-btn {
+  transform: translateX(0);
+}
+
 
 
 .fa-shopping-cart {
   margin-right: 0.5rem;
 }
-.img-container:hover .bag-btn {
-  transform: translateX(0);
-}
+
 .product-img {
   display: block;
   width: 100%;
   min-height: 12rem;
   transition: var(--mainTransition);
 }
+
 .img-container:hover .product-img {
   opacity: 0.5;
 }
