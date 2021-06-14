@@ -2,9 +2,17 @@
 // Starting session
 session_start();
 
-include ('stripe/config.php');
+//Databse
 include ("inc/conn.php");
+
+// Payment Gateway
+include ('stripe/config.php');
+
+// Get JSON file and decode contents into PHP arrays/values
+$jsonFile = 'json/15062021_products.json';
+$jsonData = json_decode(file_get_contents( $jsonFile ), true );
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -181,627 +189,266 @@ if (isset($_GET['fail'])){
       <button 
           class="banner-btn"         	
           data-toggle="collapse" 
-          data-target="#vegentree">Vegetarian Entree</button>
+          data-target="#fullmenu">Full Menu</button>
       <?php
           // get all entrees
-          $vegEntreeQ = "SELECT * FROM products WHERE cid='1'";
-          $vegEntreeR = mysqli_query($db, $vegEntreeQ);
+          /* $vegEntreeQ = "SELECT * FROM products WHERE cid='1'";
+          $vegEntreeR = mysqli_query($db, $vegEntreeQ); */
           ?>
-      <div id="vegentree" class="collapse">
+      <div id="fullmenu" class="collapse">
         <section class="products">
           <div class="section-title">
-            <h2>VEGETARIAN ENTREES</h2>
           </div>
           <div class="products-center"> 
-            <!-- single product -->
-            <?php
-                while ( $vegEntree = $vegEntreeR->fetch_assoc() )
-                {
-                ?>
+            <!-- single product -->            
                   <article class="product">
                     <div class="img-container"> 
-                    <img src="/ib20/img/order/<?php echo $vegEntree['product_image'] ?>"
-                         alt="<?php echo $vegEntree['title'] ?>"
-                         title="<?php echo $vegEntree['title'] ?>"
+                    <img src=""
+                         alt="alt"
+                         title="title"
                          class="product-img"
                          width="25px" 
                          height="25px"
                       />
-                      <button class="bag-btn" data-id="<?php echo $vegEntree['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
+                      <button class="bag-btn" data-id=""></button>
                     </div>
-                    <h4><?php echo $vegEntree['title'] ?></h3>
-                    <h3>$<?php echo $vegEntree['price'] ?></h4>
+                    <h4></h3>
+                    <h3></h4>
                   </article>
-            <?php
-                } 
-                ?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-      <button 
-        class="banner-btn"         	
-        data-toggle="collapse" 
-        data-target="#nventree">Non Vegetarian Entree 
-      </button>
-      <?php
-  // get all entrees
-  $nvEntreeQ = "SELECT * FROM products WHERE cid='2'";
-  $nvEntreeR = mysqli_query($db, $nvEntreeQ);
-  ?>
-      <div id="nventree" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>NON VEGETARIAN ENTREES</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-		while ( $nvEntree = $nvEntreeR->fetch_assoc() )
-		{
-		?>
-            <article class="product">
-              <div class="img-container"> 
-              <img src="/ib20/img/order/<?php echo $nvEntree['product_image'] ?>"
-                  alt="<?php echo $nvEntree['title'] ?>"
-                  class="product-img"
-                  width="25px" 
-                  height="25px" />
-                <button class="bag-btn" data-id="<?php echo $nvEntree['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
-              </div>
-              <h3><?php echo $nvEntree['title'] ?></h3>
-              <h4>$<?php echo $nvEntree['price'] ?></h4>
-            </article>
-            <?php
-		} 
-		?>
             <!-- end of single product --> 
           </div>
         </section>
       </div>
     </div>
-    <div class="menuRow">
-      <hr>
-    </div>
-    <div class="menuRow">
-      <button 
-                class="banner-btn"         	
-                data-toggle="collapse" 
-                data-target="#accom">Accompaniments </button>
-      <?php
-			  // get all entrees
-			  $accomQ = "SELECT * FROM products WHERE cid='11'";
-			  $accomR = mysqli_query($db, $accomQ);
-			  ?>
-      <div id="accom" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>ACCOMPANIMENTS</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-					while ( $accom = $accomR->fetch_assoc() )
-					{
-					?>
-            <article class="product">
-              <div class="img-container"> 
-              <img src="/ib20/img/order/<?php echo $accom['product_image'] ?>"
-                  alt="<?php echo $accom['title'] ?>"
-                  class="product-img"
-                  width="25px" 
-                  height="25px" />
-                <button class="bag-btn" data-id="<?php echo $accom['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
-              </div>
-              <h3><?php echo $accom['title'] ?></h3>
-              <h4>$<?php echo $accom['price'] ?></h4>
-            </article>
-            <?php
-					} 
-					?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-      <button 
-                class="banner-btn"         	
-                data-toggle="collapse" 
-                data-target="#salad">Salads </button>
-      <?php
-			  // get all entrees
-			  $saladQ = "SELECT * FROM products WHERE cid='10'";
-			  $saladR = mysqli_query($db, $saladQ);
-			  ?>
-      <div id="salad" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>SALADS</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-					while ( $salad = $saladR->fetch_assoc() )
-					{
-					?>
-            <article class="product">
-              <div class="img-container"> 
-              <img src="/ib20/img/order/<?php echo $salad['product_image'] ?> "
-                    alt="<?php echo $salad['title'] ?>"
-                    class="product-img"
-                    width="25px" 
-                    height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $salad['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
-              </div>
-              <h3><?php echo $salad['title'] ?></h3>
-              <h4>$<?php echo $salad['price'] ?></h4>
-            </article>
-            <?php
-					} 
-					?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-      <button 
-                class="banner-btn"         	
-                data-toggle="collapse" 
-                data-target="#bread">Breads </button>
-      <?php
-			  // get all entrees
-			  $breadQ = "SELECT * FROM products WHERE cid='8'";
-			  $breadR = mysqli_query($db, $breadQ);
-			  ?>
-      <div id="bread" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>BREADS</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-					while ( $bread = $breadR->fetch_assoc() )
-					{
-					?>
-            <article class="product">
-              <div class="img-container"> 
-              <img src="/ib20/img/order/<?php echo $bread['product_image'] ?> "
-						  alt="<?php echo $bread['title'] ?>"
-						  class="product-img"
-						  width="25px" 
-						  height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $bread['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
-              </div>
-              <h3><?php echo $bread['title'] ?></h3>
-              <h4>$<?php echo $bread['price'] ?></h4>
-            </article>
-            <?php
-					} 
-					?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-      <button 
-                class="banner-btn"         	
-                data-toggle="collapse" 
-                data-target="#rice">Rice </button>
-      <?php
-			  // get all entrees
-			  $riceQ = "SELECT * FROM products WHERE cid='9'";
-			  $riceR = mysqli_query($db, $riceQ);
-			  ?>
-      <div id="rice" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>RICE</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-					while ( $rice = $riceR->fetch_assoc() )
-					{
-					?>
-            <article class="product">
-              <div class="img-container"> <img src="/ib20/img/order/<?php echo $rice['product_image'] ?> "
-						  alt="<?php echo $rice['title'] ?>"
-						  class="product-img"
-						  width="25px" 
-						  height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $rice['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
-              </div>
-              <h3><?php echo $rice['title'] ?></h3>
-              <h4>$<?php echo $rice['price'] ?></h4>
-            </article>
-            <?php
-					} 
-					?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-    </div>
-    <div class="menuRow">
-      <hr>
-    </div>
-    <div class="menuRow">
-      <button 
-                    class="banner-btn"         	
-                    data-toggle="collapse" 
-                    data-target="#kids">Kids Dishes </button>
-      <?php
-			  // get all entrees
-			  $kidsQ = "SELECT * FROM products WHERE cid='13'";
-			  $kidsR = mysqli_query($db, $kidsQ);
-			  ?>
-      <div id="kids" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>KIDS DISHES</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-					while ( $kids = $kidsR->fetch_assoc() )
-					{
-					?>
-            <article class="product">
-              <div class="img-container"> <img src="/ib20/img/order/<?php echo $kids['product_image'] ?> "
-						  alt="<?php echo $kids['title'] ?>"
-						  class="product-img"
-						  width="25px" 
-						  height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $kids['id'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
-                <button class="medium-btn" data-id="<?php echo $kids['id'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
-                <button class="hot-btn" data-id="<?php echo $kids['id'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
-              </div>
-              <h3><?php echo $kids['title'] ?></h3>
-              <h4>$<?php echo $kids['price'] ?></h4>
-            </article>
-            <?php
-					} 
-					?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-      <button 
-                class="banner-btn" 
-                data-toggle="collapse" 
-                data-target="#veg">Vegetable Dishes</button>
-      <?php
-			  // get all entrees
-			  $vegQ = "SELECT * FROM products WHERE cid='10'";
-			  $vegR = mysqli_query($db, $vegQ);
-			  ?>
-      <div id="veg" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>VEGETABLE DISHES</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-					while ( $veg = $vegR->fetch_assoc() )
-					{
-					?>
-            <article class="product">
-              <div class="img-container"> 
-                <img src="/ib20/img/order/<?php echo $veg['product_image'] ?> "
-                     alt="<?php echo $veg['title'] ?>"
-                     class="product-img"
-                     width="25px" 
-                     height="25px"/>
 
-                <button class="small-btn" data-id="<?php echo $veg['id'] ?>">Small </button>
+  <?php
+  // do a rcursive over the database instead
 
-                <button class="large-btn" data-id="<?php echo $veg['id'] ?>">Large </button>
+  // another way is to do a recursive over the same json file that 
+  // runs at launch to fiil the local storage solution
 
-                <button class="mild-btn" data-id="<?php echo $veg['id'] ?>"> <i class="fas fa-thermometer-empty"></i> Mild </button>
 
-                <button class="medium-btn" data-id="<?php echo $veg['id'] ?>"> <i class="fas fa-thermometer-half"></i> Medium </button>
+  //********************************************** */
+  // DB SOLUTION
+  //********************************************** */
 
-                <button class="hot-btn" data-id="<?php echo $veg['id'] ?>"> <i class="fas fa-thermometer-full"></i> Hot </button>
+  //********************************************** */
+  // JSON SOLUTION
+  //********************************************** */
+  // first we build a key => value associative array to hold the fundamental structure of the catalouge.
+  $catQ = "SELECT `cid`, `category_name`, `anchor`, `row`, `active` FROM `categories`";
+  $catR = mysqli_query($db, $catQ);
 
-              </div>
-              <h3><?php echo $veg['title'] ?></h3>
-              <h4>$<?php echo $veg['price'] ?></h4>
-            </article>
-            <?php
-					} 
-					?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-      <button 
-                class="banner-btn" 
-                data-toggle="collapse" 
-                data-target="#chicken">Chicken Dishes </button>
-      <?php
-			  // get all chicken dishes
-			  $chickenQ = "SELECT * FROM products WHERE cid='4'";
-			  $chickenR = mysqli_query($db, $chickenQ);
-			  ?>
-      <div id="chicken" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>CHICKEN DISHES</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-					while ( $chicken = $chickenR->fetch_assoc() )
-					{
-					?>
-            <article class="product">
-              <div class="img-container"> 
-                <img src="img/order/<?php echo $chicken['product_image'] ?>"
-                     alt="<?php echo $chicken['title'] ?>"
-                     class="product-img"
-                     width="25px" 
-                     height="25px"/>
-                <button class="mild-btn" data-id="<?php echo $chicken['id'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
-                <button class="medium-btn" data-id="<?php echo $chicken['id'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
-                <button class="hot-btn" data-id="<?php echo $chicken['id'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
-              </div>
-              <h3><?php echo $chicken['title'] ?></h3>
-              <h4>$<?php echo $chicken['price'] ?></h4>
-            </article>
-            <?php
-					}
-					?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-      <button 
-                class="banner-btn" 
-                data-toggle="collapse" 
-                data-target="#beef">Beef Dishes </button>
-      <?php
-			  // get all beef dishes
-			  $beefQ = "SELECT * FROM products WHERE cid='6'";
-			  $beefR = mysqli_query($db, $beefQ);
-			  ?>
-      <div id="beef" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>BEEF DISHES</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-					while ( $beef = $beefR->fetch_assoc() )
-					{
-					?>
-            <article class="product">
-              <div class="img-container"> <img src="/ib20/img/order/<?php echo $beef['product_image'] ?> "
-						  alt="<?php echo $beef['title'] ?>"
-						  class="product-img"
-						  width="25px" 
-						  height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $beef['id'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
-                <button class="medium-btn" data-id="<?php echo $beef['id'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
-                <button class="medium-btn" data-id="<?php echo $beef['id'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
-              </div>
-              <h3><?php echo $beef['title'] ?></h3>
-              <h4>$<?php echo $beef['price'] ?></h4>
-            </article>
-            <?php
-					}
-					?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-    </div>
-    <div class="menuRow">
-      <hr>
-    </div>
-    <div class="menuRow">
-      <button 
-                class="banner-btn" 
-                data-toggle="collapse" 
-                data-target="#lamb">Lamb Dishes </button>
-      <?php
-			  // get all lamb dishes
-			  $lambQ = "SELECT * FROM products WHERE cid='5'";
-			  $lambR = mysqli_query($db, $lambQ);
-			  ?>
-      <div id="lamb" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>LAMB DISHES</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-					while ( $lamb = $lambR->fetch_assoc() )
-					{
-					?>
-            <article class="product">
-              <div class="img-container"> <img src="/ib20/img/order/<?php echo $lamb['product_image'] ?> "
-						  alt="<?php echo $lamb['title'] ?>"
-						  class="product-img"
-						  width="25px" 
-						  height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $lamb['id'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
-                <button class="medium-btn" data-id="<?php echo $lamb['id'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
-                <button class="hot-btn" data-id="<?php echo $lamb['id'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
-              </div>
-              <h3><?php echo $lamb['title'] ?></h3>
-              <h4>$<?php echo $lamb['price'] ?></h4>
-            </article>
-            <?php
-					}
-					?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-      <button 
-                class="banner-btn"         	
-                data-toggle="collapse" 
-                data-target="#goat">Goat Dishes </button>
-      <?php
-  // get all goat dishes
-  $goatQ = "SELECT * FROM products WHERE cid='16'";
-  $goatR = mysqli_query($db, $goatQ);
-  ?>
-      <div id="goat" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>GOAT DISHES</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-		while ( $goat = $goatR->fetch_assoc() )
-		{
-		?>
-            <article class="product">
-              <div class="img-container"> <img src="/ib20/img/order/<?php echo $goat['product_image'] ?> "
-              alt="<?php echo $goat['title'] ?>"
-              class="product-img"
-              width="25px" 
-              height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $goat['id'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
-                <button class="medium-btn" data-id="<?php echo $goat['id'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
-                <button class="medium-btn" data-id="<?php echo $goat['id'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
-              </div>
-              <h3><?php echo $goat['title'] ?></h3>
-              <h4>$<?php echo $goat['price'] ?></h4>
-            </article>
-            <?php
-		}
-		?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-      <button 
-                class="banner-btn"         	
-                data-toggle="collapse" 
-                data-target="#seafood">Seafood Dishes </button>
-      <?php
-  // get all seafood
-  $seafoodQ = "SELECT * FROM products WHERE cid='3'";
-  $seafoodR = mysqli_query($db, $seafoodQ);    
-  ?>
-      <div id="seafood" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>SEAFOOD DISHES</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-		while ( $seafood = $seafoodR->fetch_assoc() )
-		{
-		?>
-            <article class="product">
-              <div class="img-container"> <img src="/ib20/img/order/<?php echo $seafood['product_image'] ?> "
-              alt="<?php echo $seafood['title'] ?>"
-              class="product-img"
-              width="25px" 
-              height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $seafood['id'] ?>"> <i class="fas fa-shopping-cart"></i> Mild </button>
-                <button class="medium-btn" data-id="<?php echo $seafood['id'] ?>"> <i class="fas fa-shopping-cart"></i> Medium </button>
-                <button class="hot-btn" data-id="<?php echo $seafood['id'] ?>"> <i class="fas fa-shopping-cart"></i> Hot </button>
-              </div>
-              <h3><?php echo $seafood['title'] ?></h3>
-              <h4>$<?php echo $seafood['price'] ?></h4>
-            </article>
-            <?php
-		}
-		?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-    </div>
-    <div class="menuRow">
-      <hr>
-    </div>
-    <div class="menuRow">
-      <button 
-                class="banner-btn"         	
-                data-toggle="collapse" 
-                data-target="#dessert">Desserts </button>
-      <?php
-  // get all seafood
-  $dessertQ = "SELECT * FROM products WHERE cid='12'";
-  $dessertR = mysqli_query($db, $dessertQ);    
-  ?>
-      <div id="dessert" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>DESSERTS</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-            while ( $dessert = $dessertR->fetch_assoc() )
-            {
-            ?>
-            <article class="product">
-              <div class="img-container"> 
-              <img src="/ib20/img/order/<?php echo $dessert['product_image'] ?> "
-                  alt="<?php echo $dessert['title'] ?>"
-                  class="product-img"
-                  width="25px" 
-                  height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $dessert['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
-              </div>
-              <h3><?php echo $dessert['title'] ?></h3>
-              <h4>$<?php echo $dessert['price'] ?></h4>
-            </article>
-            <?php
+  $catArr = [];
+  $pidArr = array();                   // helps keep the correct as it will fill over the iteration of catArr
+          
+  $cidPointer = '';
+  
+  $cid = 0;  
+  $pid = 0;
+  $id = 0;
+  $title = "";
+  $product_description = "";
+  $price = 0.00;
+  $size = "";
+  $spice = "";
+  $row = 1;  // set hard to make sure we start at the first row (offset = 1)
+  $rowCount = 1; // set this to corrospond with initial row value
+  $product_image = "";
+
+  while( $cat = $catR->fetch_assoc() )
+  {
+    $catArr[$cat['cid']] =  [
+                              'cid' => $cat['cid'],
+                              'category_name' => $cat['category_name'],
+                              'anchor' => $cat['anchor'],
+                              'row' => $cat['row'],  
+                              'active' => $cat['active'],                            
+    ];
+  }
+  
+  //echo print_r($catArr);
+
+  // now we can iterate over this array an set up each button recursively
+  echo '<div class="menuRow">';
+  //echo print_r($arr);
+
+  foreach( $catArr as $arr )      // foreach CID (used as the pointer for the array) in catArr
+  { 
+    // set the row
+    $row = $arr['row'];
+    // establish the cid
+    $cidPointer = $arr['cid'];
+    // echo print_r($arr);
+    // exit();
+    //needle the stack    
+    echo '<button 
+              class="banner-btn"         	
+              data-toggle="collapse" 
+              data-target="' . $arr['anchor'] . '">' . $arr['category_name'] . '
+            </button>';
+    
+    //remove # from 
+    $id_tag = substr( $arr['anchor'], 1 );
+
+    echo '<div id="' . $id_tag . '" class="collapse">';
+      echo '<section class="products">
+            <div class="section-title">
+              <h2>' . strtoupper( $arr['category_name'] ) . '</h2>
+            </div>
+            <div class="products-center"> 
+              <!-- single product -->';
+      // we now need to correlate the data from the categories array with the 
+      // catalouge held by JSON and feed to the front end.
+      // so we know in each loop we are doing of $arr that we will wull the cid 
+      // along with the rest of the data.
+      // Lets use that to needle the jsondata stack and pull each product where 
+      // there is a match on cid;
+
+      // Iterate through JSON and build INSERT statements
+
+    // Iterate through JSON and build INSERT statements
+    // gets array filled with json data
+    foreach ( $jsonData as $id => $row ) {  // iterates over the items array which has length = 1
+      //echo $id . ' => ' . $row . '<br>';
+        // echo print_r( $id );
+    
+      foreach ( $row as $seek => $stack ) {  // seeks needle in stack array, start = 0       
+        /* echo "SEEK ARRAY<br>";
+        print_r( $seek );
+        echo "<br>"; */
+        
+        /* echo "STACK ARRAY<br>";        
+        echo print_r( $stack );
+        echo "<br>"; */
+
+        
+        foreach ( $stack as $nodeKey => $nodeValue ){       // gets sys node variablles
+         //echo print_r( $nodeValue );// we need to access directly the array sub array 'sys' and get pid.value
+              
+
+        // start writing the product div
+        // we need to establish all the variables first
+
+          foreach ( $nodeValue as $item1 => $item2 ){    // gets id field of this.sysnode
+            if( $item1 == "cid" ){
+              $cid = $item2;              
             }
-            ?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-      <button 
-        class="banner-btn"         	
-        data-toggle="collapse" 
-        data-target="#drinks">Refreshments </button>
-      <?php
-  // get all drinks
-  $drinkQ = "SELECT * FROM products WHERE cid='14'";
-  $drinkR = mysqli_query($db, $drinkQ);    
-  ?>
-      <div id="drinks" class="collapse">
-        <section class="products">
-          <div class="section-title">
-            <h2>REFRESHMENTS</h2>
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->
-            <?php
-            while ( $drink = $drinkR->fetch_assoc() )
-            {
-            ?>
-            <article class="product">
-              <div class="img-container"> 
-              <img src="/ib20/img/order/<?php echo $drink['product_image'] ?>"
-                  alt="<?php echo $drink['title'] ?>"
-                  class="product-img"
-                  width="25px" 
-                  height="25px"/>
-                <button class="bag-btn" data-id="<?php echo $drink['id'] ?>"> <i class="fas fa-shopping-cart"></i> Add to Order </button>
-              </div>
-              <h3><?php echo $drink['title'] ?></h3>
-              <h4>$<?php echo $drink['price'] ?></h4>
-            </article>
-            <?php
+            if( $item1 == "pid" ){
+              $pid = $item2;              
             }
-            ?>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
+            if( $item1 == "id" ){
+              $id = $item2;              
+            }
+              if ( $item1 == "image" ){
+
+                  foreach ( $item2 as $fieldsKey=>$fieldsVal ){
+                    // echo $fieldsKey . ' => ' . $fieldsVal . '<br>';
+
+                      foreach ( $fieldsVal as $fileKey=>$fileVal ){
+                        // echo $fileKey . ' => ' . $fileVal . '<br>';
+
+                          foreach ( $fileVal as $urlKey=>$urlVal ){
+                              // echo $urlKey . ' => ' . $urlVal . '<br>';
+                              $array[addslashes($urlKey)] = addslashes($urlVal);
+                          }   
+                      }   
+                  }      
+              } else {
+                  if( is_float( $item2) || is_integer( $item2 ) || is_int( $item2 ) )
+                  {                       
+                      $array[addslashes($item1)] = addslashes($item2);
+                        
+                  } else {      
+                      $array[addslashes($item1)] = addslashes($item2);
+                  }
+              }  
+          }      
+        }
+        //echo print_r( $pidArr ) . '<br>';
+
+    foreach( $array as $key => $value ){
+     
+      if( $key == "title" ){
+          $title = $value;                
+      }
+      if( $key == "price" ){
+          $price = $value;                
+      }
+      if( $key == "product_description" ){
+          $product_description = $value;                 
+      }
+      if( $key == "size" ){
+          $size = $value;                  
+      }
+      if( $key == "spice" ){
+          $spice = $value;                   
+      }
+      if( $key == "suspend" ){
+          $suspend = $value;
+      }
+      if( $key == "product_image" ){
+          $product_image = $value;
+      }
+
+      /* $check = ( $cidPointer == $cid )? 'true' : 'false';
+      echo 'CIDP: ' . $cidPointer . ' ?? ' . $cid . ' is ' . $check  . '<br>'; */
+
+    //echo print_r($pidArr);
+    //echo 'PID: ' . $pid . '<br>';
+      //we only want to show the first product and stopit printing the rest
+    if( !in_array( $pid, $pidArr ) && $cid == $cidPointer && $cid > 0 ){ // if the pid just pulled from json == the id set at 
+      /* if(  ) { echo '<div class="menuRow">'; } */
+      echo  $rowCount . '<br>';
+      if( $rowCount > $row ) {
+        echo '<div class="menuRow">';
+      } else if( $row == $rowCount ){
+        echo '<article class="product">
+                <div class="img-container">';
+        echo '<img src="' . $product_image . '"
+                alt="' . $title . '"
+                title="' . $title . '"
+                class="product-img"
+                width="25px" 
+                height="25px"
+              />';
+
+        if( $size == 0 && $spice == 0 ){
+          echo '<button class="bag-btn" data-id="' . $pid . '"> <i class="fas fa-shopping-cart"></i>Add to Cart</button>';
+        }
+
+        if( $size == 1 ){
+          echo '<button class="small-btn" data-id="' . $id . 'small"> <i class="fas fa-shopping-cart"></i> Small</button>';
+          echo '<button class="large-btn" data-id="' . $id . 'large"> <i class="fas fa-shopping-cart"></i> Large</button>';
+        }
+
+        if( $spice == 1 ){
+          echo '<button class="mild-btn" data-id="' . $id . 'mild"> <i class="fas fa-thermometer-empty"></i> Mild </button>
+              <button class="medium-btn" data-id="' . $id . 'medium"> <i class="fas fa-thermometer-half"></i> Medium</button>
+              <button class="hot-btn" data-id="' . $id . 'hot"> <i class="fas fa-thermometer-full"></i> Hot</button>';
+        }
+
+        echo '</div>';
+        echo '<h4>' . $title . '</h3>';
+        echo '<h3>$' . $price . '</h4>';
+        echo '</article>';
+        
+        if (!in_array( $pid, $pidArr )){
+          array_push( $pidArr, $pid );
+        }       
+      }  else {
+        $rowCount++;
+      }
+    }
+    } 
+  }
+    echo '<!-- end of single product -->';
+    echo '</div>';
+    echo '</section>';
+    echo '</div>';
+    }
+  }
+    ?>        
     </div>
   </div>
 </header>
@@ -821,7 +468,7 @@ if (isset($_GET['fail'])){
         $price = "<script>document.write(localStorage.getItem('totalPrice'));</script>";
         $title = 'Indian Brasserie';
         echo'
-          <form action="stripe/stripeIPN.php?id="'.$id.'" method="POST">
+          <form action="stripe/stripeIPN.php?id="'. $id .'" method="POST">
                 <script
                   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                   data-key = "' . $stripeDetails['publishableKey'] . '";

@@ -3,7 +3,7 @@
 $tableName = 'products';
 // Get JSON file and decode contents into PHP arrays/values
 // $jsonFile = 'products.json';
-$jsonFile = 'test.json';
+$jsonFile = './json/12062021-products.json';
 $jsonData = json_decode(file_get_contents( $jsonFile ), true );
 
 // Iterate through JSON and build INSERT statements
@@ -12,7 +12,6 @@ foreach ( $jsonData as $id=>$row ) {
     foreach ($row as $key=>$val) {
         foreach ( $val as $rowKey=>$rowValue ){
             foreach ( $rowValue as $item1=>$item2 ){ 
-
                 if ( $item1 == "image" ){
                     foreach ( $item2 as $fieldsKey=>$fieldsVal ){
                         foreach ( $fieldsVal as $fileKey=>$fileVal ){

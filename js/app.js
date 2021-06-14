@@ -30,10 +30,10 @@ class Products {
       let products = data.items;
 
       products = products.map(item => {
-      const { title, price, size, spice } = item.fields;
-      const { id } = item.sys;
-      const image = item.fields.image.fields.file.url;
-      return { title, price, size, spice, id, image };
+      const { title, price, product_description, size, spice } = item.fields;
+      const { id, pid, cid } = item.sys;
+      const product_image = item.fields.image.fields.file.product_image;
+      return { id, pid, cid, title, price, product_description, size, spice, product_image };
       });
 
       return products;
@@ -54,39 +54,50 @@ class UI {
         <article class="product">
           <div class="img-container">
             <img
-              src="${product.image}"
+              src="${product.product_image}"
               alt="product-alt"
               title="product-title"
               class="product-img"
               width="25px"
               height="25px"
             />`;
+
             if( product.size == '1' ){
+
               result += `
-              <button class="small-btn" data-id=${product.id}>
+              <button class="small-btn" data-id=${product.pid}small>
                 Small
               </button>
-              <button class="large-btn" data-id=${product.id}>                
+              <button class="large-btn" data-id=${product.pid}large>                
                 Large
               </button>`;
-            } else if( product.spice == '1' ) {
+
+            } 
+            
+            if( product.spice == '1' ) {
+
               result += `
-              <button class="mild-btn" data-id=${product.id}>
+              <button class="mild-btn" data-id=${product.id}mild>
               Mild
               </button>
-              <button class="medium-btn" data-id=${product.id}>
+              <button class="medium-btn" data-id=${product.id}medium>
                 Medium
               </button>
-              <button class="hot-btn" data-id=${product.id}>
+              <button class="hot-btn" data-id=${product.id}hot>
                 Hot
               </button>`;
-            } else {
+
+            } 
+            
+            if( product.spice == '0' && product.size == '0'){
+
               result += `              
               <button class="bag-btn" data-id=${product.id}>
                 <i class="fas fa-shopping-cart"></i>
                 Add to Order
               </button>`;
             }
+
             result += `</div>
             <h3>${product.title}</h3>
             <h4>$ ${product.price}</h4>
@@ -253,10 +264,12 @@ class UI {
         // disable button
         event.target.innerText = "In Cart";
         event.target.disabled = true;
+
         // add to cart
         let cartItem = { ...Storage.getProduct(id), amount: 1 };
         cart = [...cart, cartItem];
         Storage.saveCart(cart);
+        
         // add to DOM
         this.setCartValues(cart);
         this.addCartItem(cartItem);
@@ -279,12 +292,12 @@ class UI {
   } 
   
   addCartItem(item) {
-    
+
     const div = document.createElement("div");
     div.classList.add("cart-item");
     div.innerHTML = `<!-- cart item -->
             <!-- item image -->
-            <img src=${item.image} alt=${item.title} title=${item.title}/>
+            <img src=${item.product_image} alt=${item.title} title=${item.title}/>
             <!-- item info -->
             <div>
               <h4>${item.title}</h4>
@@ -417,33 +430,75 @@ class UI {
     button.disabled = false;
     button.innerHTML = `<i class="fas fa-shopping-cart"></i>Add to Cart`;
 
+    let mildbutton = this.getMildButton(id);
+    mildbutton.disabled = false;
+    mildbutton.innerHTML = `<i class="fas fa-shopping-cart"></i>Mild`;
+
+    let mediumbutton = this.getMediumButton(id);
+    mediumbutton.disabled = false;
+    mediumbutton.innerHTML = `<i class="fas fa-shopping-cart"></i>Medium`;
+
+    let hotbutton = this.getHotButton(id);
+    hotbutton.disabled = false;
+    hotbutton.innerHTML = `<i class="fas fa-shopping-cart"></i>Hot`;
+
+    let smallbutton = this.getSmallButton(id);
+    smallbutton.disabled = false;
+    smallbutton.innerHTML = `<i class="fas fa-shopping-cart"></i>Small`;
+
+    let largebutton = this.getLargeButton(id);
+    largebutton.disabled = false;
+    largebutton.innerHTML = `<i class="fas fa-shopping-cart"></i>Large`;
+
   }
 
 
   getSingleButton(id) {
-
     return buttonsDOM.find(button => button.dataset.id === id);
-
   }
 
+  getMildButton(id) {
+    return buttonsDOMmild.find(mildbutton => mildbutton.dataset.id === id);
+  }
+
+  getMediumButton(id) {
+    return buttonsDOMmedium.find(mediumbutton => mediumbutton.dataset.id === id);
+  }
+
+  getHotButton(id) {
+    return buttonsDOMhot.find(hotbutton => hotbutton.dataset.id === id);
+  }
+
+  getSmallButton(id) {
+    return buttonsDOMsmall.find(smallbutton => smallbutton.dataset.id === id);
+  }
+
+  getLargeButton(id) {
+    return buttonsDOMlarge.find(largebutton => largebutton.dataset.id === id);
+  }
 }
 
 class Storage {
+
   static saveProducts(products) {
     localStorage.setItem("products", JSON.stringify(products));
   }
+
   static getProduct(id) {
     let products = JSON.parse(localStorage.getItem("products"));
     return products.find(product => product.id === id);
   }
+
   static saveCart(cart) {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
+
   static getCart() {
     return localStorage.getItem("cart")
       ? JSON.parse(localStorage.getItem("cart"))
       : [];
   } 
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
