@@ -11,6 +11,9 @@ include ('stripe/config.php');
 // Get JSON file and decode contents into PHP arrays/values
 $jsonFile = 'json/15062021_products.json';
 $jsonData = json_decode(file_get_contents( $jsonFile ), true );
+
+$jsonCatFile = 'json/15062021-categories.json';
+$jsonCatData = json_decode(file_get_contents( $jsonCatFile ), true );
 ?>
 
 <!DOCTYPE html>
@@ -183,67 +186,9 @@ if (isset($_GET['fail'])){
 }
 
 // get each category and its products
-
-?>
-    <div class="menuRow">
-      <button 
-          class="banner-btn"         	
-          data-toggle="collapse" 
-          data-target="#fullmenu">Full Menu</button>
-      <?php
-          // get all entrees
-          /* $vegEntreeQ = "SELECT * FROM products WHERE cid='1'";
-          $vegEntreeR = mysqli_query($db, $vegEntreeQ); */
-          ?>
-      <div id="fullmenu" class="collapse">
-        <section class="products">
-          <div class="section-title">
-          </div>
-          <div class="products-center"> 
-            <!-- single product -->            
-                  <article class="product">
-                    <div class="img-container"> 
-                    <img src=""
-                         alt="alt"
-                         title="title"
-                         class="product-img"
-                         width="25px" 
-                         height="25px"
-                      />
-                      <button class="bag-btn" data-id=""></button>
-                    </div>
-                    <h4></h3>
-                    <h3></h4>
-                  </article>
-            <!-- end of single product --> 
-          </div>
-        </section>
-      </div>
-    </div>
-
-  <?php
-  // do a rcursive over the database instead
-
-  // another way is to do a recursive over the same json file that 
-  // runs at launch to fiil the local storage solution
-
-
-  //********************************************** */
-  // DB SOLUTION
-  //********************************************** */
-
-  //********************************************** */
-  // JSON SOLUTION
-  //********************************************** */
-  // first we build a key => value associative array to hold the fundamental structure of the catalouge.
-  $catQ = "SELECT `cid`, `category_name`, `anchor`, `row`, `active` FROM `categories`";
-  $catR = mysqli_query($db, $catQ);
-
   $catArr = [];
-  $pidArr = array();                   // helps keep the correct as it will fill over the iteration of catArr
-          
-  $cidPointer = '';
-  
+  $pidArr = array(); // helps keep the correct as it will fill over the iteration of catArr          
+  $cidPointer = '';  
   $cid = 0;  
   $pid = 0;
   $id = 0;
@@ -252,18 +197,19 @@ if (isset($_GET['fail'])){
   $price = 0.00;
   $size = "";
   $spice = "";
-  $row = 1;  // set hard to make sure we start at the first row (offset = 1)
-  $rowCount = 1; // set this to corrospond with initial row value
+  $startrow = 1;  // set hard to make sure we start at the first row (offset = 1)
   $product_image = "";
+  $rowFlag = 0; // if flag=1 then add a div at the bottom as well and reset to flag = 0
 
-  while( $cat = $catR->fetch_assoc() )
+  foreach( $jsonCatData as $cat )
+  //echo print_r($cat);
   {
     $catArr[$cat['cid']] =  [
-                              'cid' => $cat['cid'],
-                              'category_name' => $cat['category_name'],
-                              'anchor' => $cat['anchor'],
-                              'row' => $cat['row'],  
-                              'active' => $cat['active'],                            
+      'cid' => $cat['cid'],
+      'category_name' => $cat['category_name'],
+      'anchor' => $cat['anchor'],
+      'row' => $cat['row'],  
+      'active' => $cat['active'],                            
     ];
   }
   
@@ -272,21 +218,35 @@ if (isset($_GET['fail'])){
   // now we can iterate over this array an set up each button recursively
   echo '<div class="menuRow">';
   //echo print_r($arr);
+  // foreach CID (used as the pointer for the array) in catArr
 
-  foreach( $catArr as $arr )      // foreach CID (used as the pointer for the array) in catArr
+  foreach( $catArr as $arr )
   { 
     // set the row
-    $row = $arr['row'];
+    $thisrow = $arr['row'];
     // establish the cid
     $cidPointer = $arr['cid'];
     // echo print_r($arr);
     // exit();
-    //needle the stack    
+    //echo $startrow . '/' . $thisrow;
+
+    if( $thisrow > $startrow )
+    {
+      //echo '<br>New Row' . $thisrow . '/' . $startrow;
+      echo '<div class="menuRow">
+              <hr>
+            </div>
+            <div class="menuRow">';
+      $startrow++;
+      $rowFlag = 1;
+    }
+
+    //needle the stack 
     echo '<button 
               class="banner-btn"         	
               data-toggle="collapse" 
               data-target="' . $arr['anchor'] . '">' . $arr['category_name'] . '
-            </button>';
+          </button>';
     
     //remove # from 
     $id_tag = substr( $arr['anchor'], 1 );
@@ -309,100 +269,88 @@ if (isset($_GET['fail'])){
 
     // Iterate through JSON and build INSERT statements
     // gets array filled with json data
-    foreach ( $jsonData as $id => $row ) {  // iterates over the items array which has length = 1
-      //echo $id . ' => ' . $row . '<br>';
-        // echo print_r( $id );
-    
-      foreach ( $row as $seek => $stack ) {  // seeks needle in stack array, start = 0       
-        /* echo "SEEK ARRAY<br>";
-        print_r( $seek );
-        echo "<br>"; */
-        
-        /* echo "STACK ARRAY<br>";        
-        echo print_r( $stack );
-        echo "<br>"; */
 
-        
-        foreach ( $stack as $nodeKey => $nodeValue ){       // gets sys node variablles
-         //echo print_r( $nodeValue );// we need to access directly the array sub array 'sys' and get pid.value
-              
+    // iterates over the items array which has length = 1
 
+    ## Return array jsonDatarows of 1 ITEMS array that holds the catalouge
+    foreach ( $jsonData as $jsonCatalougeKey => $jsonCatalougeValue ) {  
+      // echo $jsonDataItems . ' => ' . $jsonDatarows . '<br>';
+      // echo print_r( $jsonCatalougeKey );
+      // echo print_r( $jsonCatalougeValue ) . '<br>';
+
+      // seeks needle in stack array, start = 0       
+      foreach ( $jsonCatalougeValue as $jsonDataRowItems => $jsonDataRowItem ) {  
+      // echo $jsonDataItems . ' => ' . $jsonDatarows . '<br>';
+      // echo print_r( $jsonDataRowItems );
+      // echo print_r( $jsonDataRowItem ) . '<br>';
+
+        // gets sys node variablles
+      foreach ( $jsonDataRowItem as $jsonDataRowItemKey => $jsonDataRowItemValue ){  
+        // we need to access directly the array sub array 'sys' and get pid.value
         // start writing the product div
         // we need to establish all the variables first
 
-          foreach ( $nodeValue as $item1 => $item2 ){    // gets id field of this.sysnode
-            if( $item1 == "cid" ){
-              $cid = $item2;              
-            }
-            if( $item1 == "pid" ){
-              $pid = $item2;              
-            }
-            if( $item1 == "id" ){
-              $id = $item2;              
-            }
-              if ( $item1 == "image" ){
+        // echo $jsonDataItems . ' => ' . $jsonDatarows . '<br>';     
+        // echo print_r( $jsonDataRowItemKey );
+        // echo print_r( $jsonDataRowItemValue ) . '<br>';
 
-                  foreach ( $item2 as $fieldsKey=>$fieldsVal ){
-                    // echo $fieldsKey . ' => ' . $fieldsVal . '<br>';
+        // gets id field of this.sysnode    
 
-                      foreach ( $fieldsVal as $fileKey=>$fileVal ){
-                        // echo $fileKey . ' => ' . $fileVal . '<br>';
+        foreach ( $jsonDataRowItemValue as $key => $value ){
+        // $key . ' => ' . $value . '<br>';     
+        // echo print_r( $key );
+        // echo print_r( $value );
 
-                          foreach ( $fileVal as $urlKey=>$urlVal ){
-                              // echo $urlKey . ' => ' . $urlVal . '<br>';
-                              $array[addslashes($urlKey)] = addslashes($urlVal);
-                          }   
-                      }   
-                  }      
-              } else {
-                  if( is_float( $item2) || is_integer( $item2 ) || is_int( $item2 ) )
-                  {                       
-                      $array[addslashes($item1)] = addslashes($item2);
-                        
-                  } else {      
-                      $array[addslashes($item1)] = addslashes($item2);
-                  }
-              }  
-          }      
-        }
-        //echo print_r( $pidArr ) . '<br>';
+          if( $key == "cid" ){
+            $cid = $value;              
+          }
+          if( $key == "pid" ){
+            $pid = $value;              
+          }
+          if( $key == "id" ){
+            $id = $value;              
+          } 
+          if( $key == "title" ){
+            $title = $value;                
+          }
+          if( $key == "price" ){
+            $price = $value;                
+          }
+          if( $key == "product_description" ){
+            $product_description = $value;                 
+          }
+          if( $key == "size" ){
+            $size = $value;                  
+          }
+          if( $key == "spice" ){
+            $spice = $value;                   
+          }
+          if( $key == "suspend" ){
+            $suspend = $value;
+          }
+          if ( $key == "image" ){
+            foreach ( $value as $fieldsKey=>$fieldsVal ){
+              // echo $fieldsKey . ' => ' . $fieldsVal . '<br>';
 
-    foreach( $array as $key => $value ){
-     
-      if( $key == "title" ){
-          $title = $value;                
-      }
-      if( $key == "price" ){
-          $price = $value;                
-      }
-      if( $key == "product_description" ){
-          $product_description = $value;                 
-      }
-      if( $key == "size" ){
-          $size = $value;                  
-      }
-      if( $key == "spice" ){
-          $spice = $value;                   
-      }
-      if( $key == "suspend" ){
-          $suspend = $value;
-      }
-      if( $key == "product_image" ){
-          $product_image = $value;
+              foreach ( $fieldsVal as $fileKey=>$fileVal ){
+                // echo $fileKey . ' => ' . $fileVal . '<br>';
+
+                foreach ( $fileVal as $urlKey=>$urlVal ){
+                  // echo $urlKey . ' => ' . $urlVal . '<br>';
+                  //$array[addslashes($urlKey)] = addslashes($urlVal);                             
+                  $product_image = $urlVal;
+                } 
+              }                 
+            }      
+          }          
+        }       
+        
       }
 
-      /* $check = ( $cidPointer == $cid )? 'true' : 'false';
-      echo 'CIDP: ' . $cidPointer . ' ?? ' . $cid . ' is ' . $check  . '<br>'; */
-
-    //echo print_r($pidArr);
-    //echo 'PID: ' . $pid . '<br>';
-      //we only want to show the first product and stopit printing the rest
-    if( !in_array( $pid, $pidArr ) && $cid == $cidPointer && $cid > 0 ){ // if the pid just pulled from json == the id set at 
-      /* if(  ) { echo '<div class="menuRow">'; } */
-      echo  $rowCount . '<br>';
-      if( $rowCount > $row ) {
-        echo '<div class="menuRow">';
-      } else if( $row == $rowCount ){
+      if( !in_array( $pid, $pidArr ) 
+        && $cid == $cidPointer 
+        && $suspend = "Active"){ 
+      
         echo '<article class="product">
                 <div class="img-container">';
         echo '<img src="' . $product_image . '"
@@ -418,14 +366,14 @@ if (isset($_GET['fail'])){
         }
 
         if( $size == 1 ){
-          echo '<button class="small-btn" data-id="' . $id . 'small"> <i class="fas fa-shopping-cart"></i> Small</button>';
-          echo '<button class="large-btn" data-id="' . $id . 'large"> <i class="fas fa-shopping-cart"></i> Large</button>';
+          echo '<button class="small-btn" data-id="' . $pid . 'small"> <i class="fas fa-shopping-cart"></i>Small</button>';
+          echo '<button class="large-btn" data-id="' . $pid . 'large"> <i class="fas fa-shopping-cart"></i>Large</button>';
         }
 
         if( $spice == 1 ){
-          echo '<button class="mild-btn" data-id="' . $id . 'mild"> <i class="fas fa-thermometer-empty"></i> Mild </button>
-              <button class="medium-btn" data-id="' . $id . 'medium"> <i class="fas fa-thermometer-half"></i> Medium</button>
-              <button class="hot-btn" data-id="' . $id . 'hot"> <i class="fas fa-thermometer-full"></i> Hot</button>';
+          echo '<button class="mild-btn" data-id="' . $pid . 'mild"> <i class="fas fa-thermometer-empty"></i>Mild</button>
+              <button class="medium-btn" data-id="' . $pid . 'medium"> <i class="fas fa-thermometer-half"></i>Medium</button>
+              <button class="hot-btn" data-id="' . $pid . 'hot"> <i class="fas fa-thermometer-full"></i>Hot</button>';
         }
 
         echo '</div>';
@@ -435,18 +383,19 @@ if (isset($_GET['fail'])){
         
         if (!in_array( $pid, $pidArr )){
           array_push( $pidArr, $pid );
-        }       
-      }  else {
-        $rowCount++;
+        }
       }
-    }
-    } 
+    }    
   }
+  // flush product from the array
+  $array = [];
     echo '<!-- end of single product -->';
-    echo '</div>';
+    if ( $rowFlag = 1 ){
+      echo '</div>';
+      $rowFlag = 0;
+    }
     echo '</section>';
     echo '</div>';
-    }
   }
     ?>        
     </div>

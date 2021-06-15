@@ -64,18 +64,22 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .banner {
   text-align: center;
   background: rgba(255, 255, 255, 0.8);
   display: inline-block;
   padding: 2rem;
 }
+
 .banner-title {
   font-size: 3.4rem;
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
 }
+
 .banner-btn {
+  margin: 0.25rem;
   padding: 1rem 3rem;
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);

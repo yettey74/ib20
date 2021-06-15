@@ -1,6 +1,6 @@
 <?php
 // Get JSON file and decode contents into PHP arrays/values
-$jsonFile = '15062021_products.json';
+$jsonFile = '15062021-products.json';
 $jsonData = json_decode(file_get_contents( $jsonFile ), true );
 $jsonProduct = fopen("products.json", "w") or die("Unable to open file!");'products.json';
 $array = [['items'=>'']];

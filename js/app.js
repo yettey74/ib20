@@ -137,18 +137,18 @@ class UI {
   }
   
   getMildButtons() {
-    let mildbuttons = [...document.querySelectorAll(".mild-btn")];
-    buttonsDOMmild = mildbuttons;    
-    mildbuttons.forEach(mildbutton => {
-      let id = mildbutton.dataset.id;
+    let buttons = [...document.querySelectorAll(".mild-btn")];
+    buttonsDOM = buttonsDOM.concat(buttons);
+    buttons.forEach(button => {
+      let id = button.dataset.id;
       let inCart = cart.find(item => item.id === id);
 
       if (inCart) {
-        mildbutton.innerText = "In Cart";
-        mildbutton.disabled = true;
+        button.innerText = "In Cart";
+        button.disabled = true;
       }
 	  
-      mildbutton.addEventListener("click", event => {
+      button.addEventListener("click", event => {
         // disable button
         event.target.innerText = "In Cart";
         event.target.disabled = true;
@@ -165,9 +165,9 @@ class UI {
   }
   
   getMediumButtons() {
-    let mediumbuttons = [...document.querySelectorAll(".medium-btn")];
-    buttonsDOMmedium = mediumbuttons;
-    mediumbuttons.forEach(button => {
+    let buttons = [...document.querySelectorAll(".medium-btn")];
+    buttonsDOM = buttonsDOM.concat(buttons);
+    buttons.forEach(button => {
       let id = button.dataset.id;
       let inCart = cart.find(item => item.id === id);
 
@@ -193,37 +193,37 @@ class UI {
   }
   
     getHotButtons() {
-    let hotbuttons = [...document.querySelectorAll(".hot-btn")];
-    buttonsDOMhot = hotbuttons;
-    hotbuttons.forEach(button => {
-      let id = button.dataset.id;
-      let inCart = cart.find(item => item.id === id);
-
-      if (inCart) {
-        button.innerText = "In Cart";
-        button.disabled = true;
-      }
-	  
-      button.addEventListener("click", event => {
-        // disable button
-        event.target.innerText = "In Cart";
-        event.target.disabled = true;
-        // add to cart
-        let cartItem = { ...Storage.getProduct(id), amount: 1 };
-        cart = [...cart, cartItem];
-        Storage.saveCart(cart);
-        // add to DOM
-        this.setCartValues(cart);
-        this.addCartItem(cartItem);
-        this.showCart();
+      let buttons = [...document.querySelectorAll(".hot-btn")];
+      buttonsDOM = buttonsDOM.concat(buttons);
+      buttons.forEach(button => {
+        let id = button.dataset.id;
+        let inCart = cart.find(item => item.id === id);
+  
+        if (inCart) {
+          button.innerText = "In Cart";
+          button.disabled = true;
+        }
+      
+        button.addEventListener("click", event => {
+          // disable button
+          event.target.innerText = "In Cart";
+          event.target.disabled = true;
+          // add to cart
+          let cartItem = { ...Storage.getProduct(id), amount: 1 };
+          cart = [...cart, cartItem];
+          Storage.saveCart(cart);
+          // add to DOM
+          this.setCartValues(cart);
+          this.addCartItem(cartItem);
+          this.showCart();
+        });
       });
-    });
-  }
+    }
 
   getSmallButtons() {
-    let smallbuttons = [...document.querySelectorAll(".small-btn")];
-    buttonsDOMsmall = smallbuttons;
-    smallbuttons.forEach(button => {
+    let buttons = [...document.querySelectorAll(".small-btn")];
+    buttonsDOM = buttonsDOM.concat(buttons);
+    buttons.forEach(button => {
       let id = button.dataset.id;
       let inCart = cart.find(item => item.id === id);
 
@@ -231,7 +231,7 @@ class UI {
         button.innerText = "In Cart";
         button.disabled = true;
       }
-	  
+    
       button.addEventListener("click", event => {
         // disable button
         event.target.innerText = "In Cart";
@@ -249,9 +249,9 @@ class UI {
   }
   
   getLargeButtons() {
-    let largebuttons = [...document.querySelectorAll(".large-btn")];
-    buttonsDOMlarge = largebuttons;
-    largebuttons.forEach(button => {
+    let buttons = [...document.querySelectorAll(".large-btn")];
+    buttonsDOM = buttonsDOM.concat(buttons);
+    buttons.forEach(button => {
       let id = button.dataset.id;
       let inCart = cart.find(item => item.id === id);
 
@@ -259,17 +259,15 @@ class UI {
         button.innerText = "In Cart";
         button.disabled = true;
       }
-	  
+    
       button.addEventListener("click", event => {
         // disable button
         event.target.innerText = "In Cart";
         event.target.disabled = true;
-
         // add to cart
         let cartItem = { ...Storage.getProduct(id), amount: 1 };
         cart = [...cart, cartItem];
         Storage.saveCart(cart);
-        
         // add to DOM
         this.setCartValues(cart);
         this.addCartItem(cartItem);
@@ -325,7 +323,6 @@ class UI {
 
   }
 
-
   setupAPP() {
 
     cart = Storage.getCart();
@@ -336,13 +333,11 @@ class UI {
 
   }
 
-
   populateCart(cart) {
 
     cart.forEach(item => this.addCartItem(item));
 
   }
-
 
   hideCart() {
 
@@ -403,7 +398,6 @@ class UI {
     });
   }
 
-
   clearCart() {
 
     console.log(this);
@@ -430,54 +424,15 @@ class UI {
     button.disabled = false;
     button.innerHTML = `<i class="fas fa-shopping-cart"></i>Add to Cart`;
 
-    let mildbutton = this.getMildButton(id);
-    mildbutton.disabled = false;
-    mildbutton.innerHTML = `<i class="fas fa-shopping-cart"></i>Mild`;
-
-    let mediumbutton = this.getMediumButton(id);
-    mediumbutton.disabled = false;
-    mediumbutton.innerHTML = `<i class="fas fa-shopping-cart"></i>Medium`;
-
-    let hotbutton = this.getHotButton(id);
-    hotbutton.disabled = false;
-    hotbutton.innerHTML = `<i class="fas fa-shopping-cart"></i>Hot`;
-
-    let smallbutton = this.getSmallButton(id);
-    smallbutton.disabled = false;
-    smallbutton.innerHTML = `<i class="fas fa-shopping-cart"></i>Small`;
-
-    let largebutton = this.getLargeButton(id);
-    largebutton.disabled = false;
-    largebutton.innerHTML = `<i class="fas fa-shopping-cart"></i>Large`;
-
+    
   }
-
 
   getSingleButton(id) {
     return buttonsDOM.find(button => button.dataset.id === id);
   }
-
-  getMildButton(id) {
-    return buttonsDOMmild.find(mildbutton => mildbutton.dataset.id === id);
-  }
-
-  getMediumButton(id) {
-    return buttonsDOMmedium.find(mediumbutton => mediumbutton.dataset.id === id);
-  }
-
-  getHotButton(id) {
-    return buttonsDOMhot.find(hotbutton => hotbutton.dataset.id === id);
-  }
-
-  getSmallButton(id) {
-    return buttonsDOMsmall.find(smallbutton => smallbutton.dataset.id === id);
-  }
-
-  getLargeButton(id) {
-    return buttonsDOMlarge.find(largebutton => largebutton.dataset.id === id);
-  }
 }
 
+// storage
 class Storage {
 
   static saveProducts(products) {
